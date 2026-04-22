@@ -90,40 +90,10 @@ Then open the local Streamlit URL shown in the terminal.
 
 ## Deployed On Streamlit Community Cloud
 
-Check out the live webite at (Resume Rag) [https://resume-rag-1001.streamlit.app/]
-
----
-## Example Questions
-
-- Which resume has the strongest Python and machine learning experience?
-- Find candidates with REST API and backend development skills.
-- Show resumes mentioning SQL, dashboards, and analytics.
+Check out the live webite at [Resume Rag](https://resume-rag-1001.streamlit.app/])
+Example Question:
 - Which candidate looks most relevant for a data engineering role?
 
-## How To Push This To GitHub
-
-If you already created a repository on GitHub, use these commands from this folder:
-
-```powershell
-git add .
-git commit -m "Build RAG resume query project"
-git branch -M main
-git remote add origin https://github.com/YOUR-USERNAME/YOUR-REPO.git
-git push -u origin main
-```
-
-If a remote already exists, check it first:
-
-```powershell
-git remote -v
-```
-
-If needed, update the remote URL:
-
-```powershell
-git remote set-url origin https://github.com/YOUR-USERNAME/YOUR-REPO.git
-git push -u origin main
-```
 
 ## Good Next Step
 
