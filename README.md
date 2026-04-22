@@ -88,25 +88,11 @@ streamlit run app.py
 
 Then open the local Streamlit URL shown in the terminal.
 
-## Deploy On Streamlit Community Cloud
+## Deployed On Streamlit Community Cloud
 
-This repository is ready for Streamlit Community Cloud. The deployment entrypoint is:
+Check out the live webite at (Resume Rag) [https://resume-rag-1001.streamlit.app/]
 
-```text
-streamlit_app.py
-```
-
-Steps:
-
-1. Push this repository to GitHub.
-2. Go to [share.streamlit.io](https://share.streamlit.io).
-3. Sign in with GitHub and click **Create app**.
-4. Choose **Yup, I have an app**.
-5. Select your repository, branch `main`, and entrypoint file `streamlit_app.py`.
-6. Click **Deploy**.
-
-The app writes uploaded resume vectors to a session-specific local folder under `artifacts/`. That folder is ignored by Git so resume data and vector database files are not committed to GitHub.
-
+---
 ## Example Questions
 
 - Which resume has the strongest Python and machine learning experience?
