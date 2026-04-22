@@ -80,13 +80,32 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
-## Run The App
+## Run The App Locally
 
 ```powershell
 streamlit run app.py
 ```
 
 Then open the local Streamlit URL shown in the terminal.
+
+## Deploy On Streamlit Community Cloud
+
+This repository is ready for Streamlit Community Cloud. The deployment entrypoint is:
+
+```text
+streamlit_app.py
+```
+
+Steps:
+
+1. Push this repository to GitHub.
+2. Go to [share.streamlit.io](https://share.streamlit.io).
+3. Sign in with GitHub and click **Create app**.
+4. Choose **Yup, I have an app**.
+5. Select your repository, branch `main`, and entrypoint file `streamlit_app.py`.
+6. Click **Deploy**.
+
+The app writes uploaded resume vectors to a session-specific local folder under `artifacts/`. That folder is ignored by Git so resume data and vector database files are not committed to GitHub.
 
 ## Example Questions
 
@@ -123,4 +142,3 @@ git push -u origin main
 ## Good Next Step
 
 Once you are happy with retrieval quality, the next upgrade is to add a generation layer. That would turn this from retrieval-first RAG into full RAG by sending the top retrieved chunks to an LLM and asking it to synthesize a final answer.
-

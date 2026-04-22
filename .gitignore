@@ -7,10 +7,7 @@ test-tmp/
 .mypy_cache/
 .coverage
 htmlcov/
-artifacts/*.db
-artifacts/*.joblib
-artifacts/*.sqlite3
-artifacts/*.json
+artifacts/
 dist/
 build/
 *.pyc

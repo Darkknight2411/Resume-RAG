@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import sys
+from uuid import uuid4
 from pathlib import Path
 
 import streamlit as st
@@ -16,10 +17,21 @@ from resume_rag.pipeline import ResumeRAGPipeline
 from resume_rag.schemas import ResumeFile
 
 
+def get_session_settings() -> Settings:
+    if "rag_session_id" not in st.session_state:
+        st.session_state["rag_session_id"] = uuid4().hex
+
+    settings = Settings.from_project_root(PROJECT_ROOT)
+    session_artifacts_dir = PROJECT_ROOT / "artifacts" / "sessions" / st.session_state["rag_session_id"]
+    settings.database_path = session_artifacts_dir / "resume_vectors.db"
+    settings.vectorizer_path = session_artifacts_dir / "tfidf_vectorizer.joblib"
+    return settings
+
+
 def main() -> None:
     st.set_page_config(page_title="RAG Resume Query", page_icon="R", layout="wide")
 
-    settings = Settings.from_project_root(PROJECT_ROOT)
+    settings = get_session_settings()
     pipeline = ResumeRAGPipeline(settings)
 
     st.title("RAG Resume Query")
@@ -33,7 +45,7 @@ def main() -> None:
             1. We parse each resume into raw text.
             2. We split that text into overlapping chunks.
             3. We convert each chunk into a TF-IDF vector embedding.
-            4. We save those vectors and their source text in a local SQLite vector DB.
+            4. We save those vectors and their source text in a session-specific SQLite vector DB.
             5. Your query is transformed into the same vector space.
             6. We compare the query against stored vectors and return the top-k results.
             """
@@ -118,4 +130,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
